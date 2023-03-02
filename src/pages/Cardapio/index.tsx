@@ -1,7 +1,7 @@
 import style from './Cardapio.module.scss'
-import { ReactComponent as Logo } from 'assets/logo.svg'
+import tema from 'styles/Tema.module.scss'
 import Buscador from './Buscador'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Filtros from './Filtros'
 import Ordenador from './Ordenador'
 import Items from './Items'
@@ -12,33 +12,15 @@ export default function Cardapio() {
   const [filtro, setFiltro] = useState<number | null>(null)
   const [ordenador, setOrdenador] = useState<OpcoesOrdenador>('')
 
-  console.log('toda render')
-
-  useEffect(() => {
-    console.log('só uma vez (primeira render)')
-  })
-
   return (
-    <main>
-      <nav className={style.menu}>
-        <Logo />
-      </nav>
-
-      <header className={style.header}>
-        <div className={style.header__text}>
-          A casa do código e da massa
-        </div>
-      </header>
-      
-      <section className={style.cardapio}>
-        <h3 className={style.cardapio__titulo}>Cardápio</h3>
-        <Buscador busca={busca} setBusca={setBusca} />
-        <div className={style.cardapio__filtros}>
-          <Filtros filtro={filtro} setFiltro={setFiltro} />
-          <Ordenador ordenador={ordenador} setOrdenador={setOrdenador} />
-        </div>
-        <Items busca={busca} filtro={filtro} ordenador={ordenador}/>
-      </section>
-    </main>
+    <section className={style.cardapio}>
+      <h3 className={tema.titulo}>Cardápio</h3>
+      <Buscador busca={busca} setBusca={setBusca} />
+      <div className={style.cardapio__filtros}>
+        <Filtros filtro={filtro} setFiltro={setFiltro} />
+        <Ordenador ordenador={ordenador} setOrdenador={setOrdenador} />
+      </div>
+      <Items busca={busca} filtro={filtro} ordenador={ordenador}/>
+    </section>
   )
 }

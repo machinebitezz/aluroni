@@ -1,10 +1,8 @@
-import Cardapio from './pages/Cardapio'
+import AppRouter from './routes'
 
 function App() {
   return (
-    <>
-      <Cardapio />
-    </>
+    <AppRouter />
   )
 }
 
